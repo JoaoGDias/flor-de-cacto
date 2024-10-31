@@ -1,0 +1,104 @@
+.footer {
+    .ftr {
+        display: flex;
+        justify-content: space-between;
+        padding: 50px 70px 40px;
+  
+        @media(max-width: 1200px) {
+            flex-direction: column;
+        }
+  
+        &__logo {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+  
+            .logo {
+                img {
+                    display: block;
+                    object-fit: contain;
+                    object-position: center;
+                    image-rendering: -webkit-optimize-contrast;
+                    height: 80px;
+                    margin-bottom: 30px;
+                    width: 185px;
+                }
+            }
+  
+            ul {
+                display: flex;
+                justify-content: space-between;
+                max-width: 120px;
+                width: 100%;
+  
+                li {
+                    a {
+                        img {
+                            display: block;
+                            transition: all .3s ease-in-out;
+                        }
+  
+                        &:hover {
+                            img {
+                                opacity: .8;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+  
+        &__wrap {
+            display: flex;
+            justify-content: space-between;
+            max-width: 100%;
+            width: 630px;
+  
+            @media(max-width: 1200px) {
+               display: none;
+            }
+        }
+  
+        &__mnu {
+            display: flex;
+            flex-direction: column;
+  
+            h4 {
+                color: var(--primary);
+                font-family: var(--font-outfit), sans-serif;
+                font-size: 24px;
+                font-weight: 500;
+                margin-bottom: 24px;
+            }
+  
+            ul {
+                li {
+                    a {
+                        color: var(--primary);
+                        font-family: var(--font-outfit), sans-serif;
+                        font-weight: 300;
+                        text-decoration: none;
+                        transition: all .3s ease-in-out;
+  
+                        &:hover {
+                            font-weight: 400;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+  
+    .copyright {
+        background-color: var(--primary);
+        padding: 6px 0;
+        p {
+            color: #fff;
+            font-family: var(--font-outfit), sans-serif;
+            font-size: 14px;
+            text-align: center;
+        }
+    }
+  }

@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: 'Conso';
+  src: local('Conso Thin'), local('../fonts/Conso-Thin'),
+      url('./fonts/Conso-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Conso';
+  src: local('Conso ExtraLight'), local('../fonts/Conso-ExtraLight'),
+      url('/fonts/Conso-ExtraLight.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Conso';
+  src: local('Conso Regular'), local('../fonts/Conso-Regular'),
+      url('/fonts/Conso-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Conso';
+  src: local('Conso Light'), local('../fonts/Conso-Light'),
+      url('/fonts/Conso-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Conso';
+  src: local('Conso Medium'), local('../fonts/Conso-Medium'),
+      url('/fonts/Conso-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Conso';
+  src: local('Conso SemiBold'), local('../fonts/Conso-SemiBold'),
+      url('/fonts/Conso-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Conso';
+  src: local('Conso Bold'), local('../fonts/Conso-Bold'),
+      url('/fonts/Conso-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+:root {
+  --primary: #B68F72;
+  --primary-hover: #937354;
+  --primary-rgb: 182, 143, 114;
+  --secondary: #D2B0A6;
+  --terciary: #97A27F;
+  --terciary-rgb: 151, 162, 127;
+  --hover: #E3D3A8;
+  --hover-rgb: 227, 211, 168;
+  --background: #F4F0ED;
+  --primary-text: #4d4d4d;
+  --terciary-hover: #7c856a;
+}
+
+html, body {
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Conso', sans-serif;
+  font-size: 100%;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden; 
+}
+
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.title {
+  color: var(--primary);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  position: relative;
+
+  @media(max-width: 600px) {
+      font-size: 22px;
+  }
+}
+
+.sub-title {
+  color: var(--primary-text);
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  margin-bottom: 50px;
+  max-width: 480px;
+  position: relative;
+
+  &:after {
+      content: '';
+      background-color: var(--primary);
+      height: 2px;
+      left: 0;
+      position: absolute;
+      bottom: -25px;
+      width: 100px;
+  }
+}
+
+
+.outFit {
+  font-family : var(--font-outfit), sans-serif;
+}
+
+.jakarta {
+  font-family: var(--font-pjs), sans-serif;
+}
+
+.primaryColor {
+  color : var(--primary);
+}
