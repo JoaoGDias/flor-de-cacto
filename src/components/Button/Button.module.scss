@@ -1,0 +1,22 @@
+.btn {
+    background-color: var(--primary);
+    color: #fff;
+    display: inline-block;
+    font-optical-sizing: auto;
+    font-family: 'Outfit',sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 15px 60px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background .3s ease-in-out;
+
+    @media(max-width: 600px) {
+        font-size: 14px;
+        padding: 15px 40px;
+    }
+
+    &:hover {
+        background-color: var(--secondary);
+    }
+}

@@ -1,0 +1,86 @@
+.newsletter {
+    align-items: center;
+    background-color: rgba(var(--primary-rgb), .1);
+    border-top: solid 1px var(--primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px 0;
+
+    @media(max-width: 1200px) {
+        padding: 50px 20px;
+    }
+    
+    h3 {
+        color: var(--primary);
+        font-family: var(--font-outfit), sans-serif;
+        font-size: 24px;
+        font-weight: 200;
+        margin-bottom: 20px;
+
+        @media(max-width: 1200px) {
+            font-size: 18px;
+            text-align: center;
+        }
+    }
+
+    form {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+        input {
+            border: 0;
+            background-color: rgba(var(--primary-rgb), .1);
+            color: var(--primary);
+            outline: none;
+            height: 50px;
+            font-size: 16px;
+            font-family:  var(--font-outfit), sans-serif;
+            font-weight: 400;
+            max-width: 100%;
+            padding: 15px;
+            width: 380px;
+
+            @media(max-width: 1200px) {
+                width: 90%;
+            }
+        }
+
+        button {
+            background-color: var(--primary);
+            border: 0;
+            color: #fff;
+            cursor: pointer;
+            height: 50px;
+            font-family:  var(--font-outfit), sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            outline: none;
+            transition: all .3s ease-in-out;
+            width: 100px;
+
+            @media(max-width: 1200px) {
+                font-size: 12px;
+                padding: 0 10px;
+                width: auto;
+            }
+
+            &:hover {
+                background-color: var(--secondary);
+            }
+        }
+
+        ::placeholder {
+            color: var(--primary);
+            font-size: 16px;
+            font-weight: 300;
+
+            @media(max-width: 1200px) {
+                font-size: 14px;
+            }
+        }
+    }
+}

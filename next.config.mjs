@@ -8,6 +8,10 @@ const nextConfig = {
           protocol: "http",
           hostname: "flor-de-cactos.local",
         },
+        {
+          protocol: "https",
+          hostname: "images.unsplash.com",
+        },
       ],
     },
     
