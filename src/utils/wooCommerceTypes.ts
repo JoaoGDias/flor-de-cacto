@@ -27,7 +27,7 @@ export interface Product {
   total_sales: number;
   virtual: boolean;
   downloadable: boolean;
-  downloads: any[]; // TODO look at Downloads properties
+  downloads: Download[]; // Substituído any[] por Download[]
   download_limit: number;
   download_expiry: number;
   external_url: string;
@@ -56,10 +56,10 @@ export interface Product {
   parent_id: number;
   purchase_note: string;
   categories: Partial<Category>[];
-  tags: any[]; // TODO look at Tags properties
+  tags: Tag[]; // Substituído any[] por Tag[]
   images: Image[];
   attributes: Attribute[];
-  default_attributes: any[]; // TODO look at default attributes properties
+  default_attributes: DefaultAttribute[]; // Substituído any[] por DefaultAttribute[]
   variations: number[];
   grouped_products: number[];
   menu_order: number;
@@ -96,7 +96,7 @@ export interface MetaDatum {
   value: string;
 }
 
-interface LineItem {
+export interface LineItem {
   id: number;
   name: string;
   product_id: number;
@@ -107,50 +107,44 @@ interface LineItem {
   subtotal_tax: string;
   total: string;
   total_tax: string;
-  taxes: any[];
-  meta_data: MetaData[];
+  taxes: Tax[]; // Substituído any[] por Tax[]
+  meta_data: MetaDatum[];
   sku: string;
   price: number;
 }
 
-interface ShippingLine {
+export interface ShippingLine {
   id: number;
   method_title: string;
   method_id: string;
   instance_id: string;
   total: string;
   total_tax: string;
-  taxes: any[];
-  meta_data: any[];
+  taxes: Tax[]; // Substituído any[] por Tax[]
+  meta_data: MetaDatum[]; // Substituído any[] por MetaDatum[]
 }
 
-interface Meta_Data_Line_Item {
-  // built from my own object sending in, disregard if necessary!
-  key: string;
-  value: string;
+export interface Tax {
+  id: number;
+  rate_code: string;
+  rate_id: number;
+  label: string;
+  compound: boolean;
+  tax_total: string;
+  shipping_tax_total: string;
 }
 
-interface Cart {
-  // built from my own object sending in, disregard if necessary!
+export interface Cart {
   payment_method: string;
   payment_method_title: string;
   billing: Billing;
   shipping: Shipping;
-  line_items: Array<LineItem>;
-  shipping_lines: Array<ShippingLine>;
+  line_items: LineItem[];
+  shipping_lines: ShippingLine[];
   customer_id: number;
-  meta_data: Array<Meta_Data_Line_Item>;
+  meta_data: MetaDatum[];
   set_paid: false;
 }
-
-// interface Attribute {
-// 	id: number;
-// 	name: string;
-// 	position: number;
-// 	visible: boolean;
-// 	variation: boolean;
-// 	options: string[];
-// }
 
 export interface Image {
   id: number;
@@ -165,6 +159,12 @@ export interface Image {
 }
 
 export interface Attribute {
+  id: number;
+  name: string;
+  option: string;
+}
+
+export interface DefaultAttribute {
   id: number;
   name: string;
   option: string;
@@ -195,7 +195,7 @@ export interface Customer {
   shipping: Shipping;
   is_paying_customer: boolean;
   avatar_url: string;
-  meta_data: MetaData[];
+  meta_data: MetaDatum[];
   _links: Links;
 }
 
@@ -229,18 +229,18 @@ export interface Order {
   payment_method: string;
   payment_method_title: string;
   transaction_id: string;
-  date_paid?: any;
-  date_paid_gmt?: any;
-  date_completed?: any;
-  date_completed_gmt?: any;
+  date_paid?: Date | null; // Substituído any por Date ou null
+  date_paid_gmt?: Date | null; // Substituído any por Date ou null
+  date_completed?: Date | null; // Substituído any por Date ou null
+  date_completed_gmt?: Date | null; // Substituído any por Date ou null
   cart_hash: string;
-  meta_data: any[];
+  meta_data: MetaDatum[];
   line_items: LineItem[];
-  tax_lines: any[];
+  tax_lines: Tax[]; // Substituído any[] por Tax[]
   shipping_lines: ShippingLine[];
-  fee_lines: any[];
-  coupon_lines: any[];
-  refunds: any[];
+  fee_lines: FeeLine[]; // Substituído any[] por FeeLine[]
+  coupon_lines: CouponLine[]; // Substituído any[] por CouponLine[]
+  refunds: Refund[]; // Substituído any[] por Refund[]
   _links: Links;
 }
 
@@ -289,22 +289,22 @@ export interface Variation {
   price: string;
   regular_price: string;
   sale_price: string;
-  date_on_sale_from?: any;
-  date_on_sale_from_gmt?: any;
-  date_on_sale_to?: any;
-  date_on_sale_to_gmt?: any;
+  date_on_sale_from?: Date | null; // Substituído any por Date ou null
+  date_on_sale_from_gmt?: Date | null; // Substituído any por Date ou null
+  date_on_sale_to?: Date | null; // Substituído any por Date ou null
+  date_on_sale_to_gmt?: Date | null; // Substituído any por Date ou null
   on_sale: boolean;
   visible: boolean;
   purchasable: boolean;
   virtual: boolean;
   downloadable: boolean;
-  downloads: any[];
+  downloads: Download[]; // Substituído any[] por Download[]
   download_limit: number;
   download_expiry: number;
   tax_status: string;
   tax_class: string;
   manage_stock: boolean;
-  stock_quantity?: any;
+  stock_quantity?: number | null; // Substituído any por number ou null
   in_stock: boolean;
   backorders: string;
   backorders_allowed: boolean;
@@ -316,8 +316,42 @@ export interface Variation {
   image: Image;
   attributes: Attribute[];
   menu_order: number;
-  meta_data: MetaData[];
+  meta_data: MetaDatum[];
   _links: Links;
+}
+
+export interface Download {
+  id: number;
+  name: string;
+  file: string;
+}
+
+export interface Tag {
+  id: number;
+  name: string;
+  slug: string;
+}
+
+export interface FeeLine {
+  id: number;
+  name: string;
+  total: string;
+  tax_class: string;
+  tax_status: string;
+}
+
+export interface CouponLine {
+  id: number;
+  code: string;
+  discount: string;
+  discount_tax: string;
+}
+
+export interface Refund {
+  id: number;
+  reason: string;
+  amount: string;
+  date_created: Date;
 }
 
 export interface Self {
