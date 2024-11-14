@@ -1,3 +1,6 @@
+import { createRequire } from 'module'; // Importando a função 'require' do Node.js
+const require = createRequire(import.meta.url);
+
 const WooCommerceRestApi = require("@woocommerce/woocommerce-rest-api").default;
 
 // initialise the WooCommerceRestApi //
