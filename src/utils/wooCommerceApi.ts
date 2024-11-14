@@ -14,6 +14,30 @@ export async function fetchWooCommerceProducts() {
     const response = await api.get("products");
     return response;
   } catch (error) {
-    throw new Error(error);
+    if (error instanceof Error) {
+      throw new Error(`Erro ao buscar produto: ${error.message}`);
+    } else {
+      throw new Error("Erro desconhecido ao buscar produto.");
+    }
+  }
+}
+
+export async function fetchProductBySlug(slug : string) {
+  try {
+    const response = await api.get(`products/?slug=${slug}`);
+    // Supondo que a resposta tenha a estrutura de um produto.
+    if (response.status === 200 && response.data) {
+      return response.data[0];  // Aqui pode ser um objeto do tipo Product
+    }
+    
+    // Se o status não for 200 ou não tiver dados, retorne null
+    return null;
+  } catch (error) {
+    // Verifica se o erro é uma instância de Error ou outro tipo
+    if (error instanceof Error) {
+      throw new Error(`Erro ao buscar produto: ${error.message}`);
+    } else {
+      throw new Error("Erro desconhecido ao buscar produto.");
+    }
   }
 }

@@ -1,0 +1,66 @@
+
+.buyInfos {
+    background-color: var(--background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+    padding: 20px 0;
+
+    @media(max-width: 600px) {
+        padding: 20px 50px;
+    }
+    ul {
+        display: flex;
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+
+        @media(max-width: 600px) {
+            flex-direction: column;
+            max-width: 100%;
+            width: auto;
+        }
+        
+        li {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            max-width: 100%;
+            width: 400px;
+    
+            @media(max-width: 600px) {
+                justify-content: flex-start;
+                width: auto;
+    
+                &:not(:last-child) {
+                    margin-bottom: 20px;
+                }
+            }
+            
+            img, svg {
+                display: block;
+                height: 50px;
+                margin-right: 15px;
+                object-fit: contain;
+                object-position: center;
+            }
+            
+            p {
+                color: #4d4d4d;
+                font-family: var(--font-outfit), sans-serif;
+                font-size: 12px;
+                font-weight: 400;
+                
+                strong {
+                    color: #363435;
+                    display: block;
+                    font-size: 20px;
+                    font-weight: 600;
+                    line-height: 24px;
+                }
+            }
+        }
+    }
+
+}
