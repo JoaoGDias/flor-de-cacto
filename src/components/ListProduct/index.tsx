@@ -25,7 +25,7 @@ export default function ListProduct(props : Props) {
                 </div>
 
                 <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    {products.filter(product => product.stock_status == 'instock').slice(0,4).map(product => (
+                    {products.map(product => (
                         <div key={product.id}>
                             <Link href={`produto/${product.slug}`} className="group relative block h-96 overflow-hidden rounded-t-lg bg-gray-100">
                                 <Image fill={true} src={product.images[0].src} loading="lazy" alt={product.images[0].alt} className="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
