@@ -14,7 +14,7 @@ const api = new WooCommerceRestApi({
 // fetch all products from WooCommerce //
 export async function fetchWooCommerceProducts() {
   try {
-    const response = await api.get("products");
+    const response = await api.get("products?status=publish&stock_status=instock&per_page=4");
     return response;
   } catch (error) {
     if (error instanceof Error) {
