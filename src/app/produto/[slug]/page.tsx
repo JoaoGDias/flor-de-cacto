@@ -1,6 +1,7 @@
 import { fetchProductBySlug } from "@/utils/wooCommerceApi";
 import Image from "next/image";
 import Link from "next/link";
+import CartButton from "@/components/Button/cartButton";
 
 export default async function Produto({params} : { params: Promise<{ slug: string }>}) {
     const slug = (await params).slug
@@ -88,8 +89,8 @@ export default async function Produto({params} : { params: Promise<{ slug: strin
                             </div>
 
                             <div className="flex gap-2.5">
-                                <Link href="#" className="inline-block flex-1 rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 sm:flex-none md:text-base">Adicionar ao carrinho</Link>
-
+                                
+                                <CartButton product={product}/>
                                 <Link href="#" className="inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base">Comprar agora</Link>
                             </div>
                         </div>

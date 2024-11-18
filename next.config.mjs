@@ -7,6 +7,9 @@ const nextConfig = {
         {
           protocol: "http",
           hostname: "flor-de-cactos.local",
+        },        {
+          protocol: "http",
+          hostname: "localhost",
         },
         {
           protocol: "https",
