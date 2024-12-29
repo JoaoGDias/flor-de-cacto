@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit, Plus_Jakarta_Sans } from 'next/font/google'
 import "./globals.css";
+import { CartProvider } from '@/context/CartContext';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Newsletter from "@/components/Newsletter";
@@ -33,8 +34,10 @@ export default function RootLayout({
         className={`${outfit.variable} ${pjs.variable} antialiased `}
       >
         <Header />
-          {children}
-        <Newsletter />      
+          <CartProvider>
+            {children}
+          </CartProvider>
+          <Newsletter />      
         <Footer />
       </body>
     </html>
