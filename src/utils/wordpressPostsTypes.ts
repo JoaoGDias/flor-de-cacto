@@ -37,6 +37,17 @@ export interface DataPost {
                 source_url: string;
             }
         ],
+        "wp:term" : [
+            {
+                some(arg0: (category: { id: number; }) => boolean): unknown;
+                id: number;
+                link: string;
+                name: string;
+                slug: string;
+                taxonomy: string;
+                _links: object;
+            }
+        ]
     },
     author: number;
     featured_media: number;
