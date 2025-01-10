@@ -29,7 +29,7 @@ export default function Header() {
         <header className={`${style.header} ${isSticky ? style.fixed : ''}`}>
             <div className="container">
                 <nav>
-                    <Link href="/modaflordecacto" className={style.logo}>
+                    <Link href="/" className={style.logo}>
                         <Image src="/logo-flor-de-cacto.png" width={139} height={60} alt="Imagem da logo da loja - Flor de cacto" />
                     </Link> 
                     <ul className={`${style.menuList} ${showMnuMob ? style.active : ''}`}>
@@ -37,7 +37,7 @@ export default function Header() {
                         <li><Link href="/">A Flor de Cacto</Link></li>
                         <li><Link href="/">Roupas</Link></li>
                         <li><Link href="/">Acessórios</Link></li>
-                        <li><Link href="/">Blog</Link></li>
+                        <li><Link href="/blog">Blog</Link></li>
                         <li><Link href="/"><FaUser size="24" /></Link></li>
                     </ul>
 
@@ -45,7 +45,7 @@ export default function Header() {
                         <Link href="/">
                             <FaUser size="24" />
                         </Link>
-                        <Link href="/">
+                        <Link href="/cart">
                             <FaShoppingBag size="24" />
                         </Link>
                     </div>

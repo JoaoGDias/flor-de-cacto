@@ -159,6 +159,7 @@ export interface Image {
 }
 
 export interface Attribute {
+  options: string;
   id: number;
   name: string;
   option: string;

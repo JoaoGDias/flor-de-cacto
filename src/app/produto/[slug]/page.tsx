@@ -2,14 +2,16 @@ import { fetchProductBySlug } from "@/utils/wooCommerceApi";
 import Image from "next/image";
 import Link from "next/link";
 import CartButton from "@/components/Button/cartButton";
+import { Product } from "@/utils/wooCommerceTypes";
 
 export default async function Produto({params} : { params: Promise<{ slug: string }>}) {
     const slug = (await params).slug
 
-    const product = await fetchProductBySlug(slug).catch((error) =>
-        console.error(error)
-    );
-    
+    const product : Product = await fetchProductBySlug(slug).catch((error) => {
+        console.error(error);
+        return null;
+    });
+
     return (
         <div className="container">
             <div className="bg-white py-6 sm:py-8 lg:py-12">
@@ -90,7 +92,7 @@ export default async function Produto({params} : { params: Promise<{ slug: strin
 
                             <div className="flex gap-2.5">
                                 
-                                <CartButton product={product}/>
+                                <CartButton cartItem={product}/>
                                 <Link href="#" className="inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base">Comprar agora</Link>
                             </div>
                         </div>
