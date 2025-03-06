@@ -27,7 +27,7 @@ export async function fetchWooCommerceProducts() {
 
 export async function fetchProductBySlug(slug : string) {
   try {
-    const response = await api.get(`products/?slug=${slug}`);
+    const response = await api.get(`products/?slug=${slug}&embed`);
     // Supondo que a resposta tenha a estrutura de um produto.
     if (response.status === 200 && response.data) {
       return response.data[0];  // Aqui pode ser um objeto do tipo Product

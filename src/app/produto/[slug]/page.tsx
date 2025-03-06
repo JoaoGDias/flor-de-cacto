@@ -12,25 +12,33 @@ export default async function Produto({params} : { params: Promise<{ slug: strin
         return null;
     });
 
+    const salePrice = Number(product.sale_price).toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
+    const regularPrice = Number(product.regular_price).toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
+
+
+    console.log(product)
+
     return (
         <div className="container">
             <div className="bg-white py-6 sm:py-8 lg:py-12">
                 <div className="mx-auto max-w-screen-xl px-4 md:px-8">
                     <div className="grid gap-8 md:grid-cols-2">
                         <div className="grid gap-4 lg:grid-cols-5">
-                            {/* <div className="order-last flex gap-4 lg:order-none lg:flex-col">
-                                <div className="overflow-hidden rounded-lg bg-gray-100">
-                                    <Image src="https://images.unsplash.com/flagged/photo-1571366992791-2ad2078656cb?auto=format&q=75&fit=crop&w=250" loading="lazy" alt="Photo by Himanshu Dewangan" className="h-full w-full object-cover object-center" />
+                            <div className="order-last flex gap-4 lg:order-none lg:flex-col">
+
+                                {product.images.map((image)=>(
+                                    <div key={image.id} className="overflow-hidden rounded-lg bg-gray-100">
+                                        <Image src={image.src+} height={250} width={100} loading="lazy" alt="Photo by Himanshu Dewangan" className="h-full w-full object-cover object-center" />
+                                    </div>
+                                ))}
+                                {/* <div className="overflow-hidden rounded-lg bg-gray-100">
+                                    <Image src="https://images.unsplash.com/flagged/photo-1571366992968-15b65708ee76?auto=format&q=75&fit=crop&w=250" height={250} width={100} loading="lazy" alt="Photo by Himanshu Dewangan" className="h-full w-full object-cover object-center" />
                                 </div>
 
                                 <div className="overflow-hidden rounded-lg bg-gray-100">
-                                    <Image src="https://images.unsplash.com/flagged/photo-1571366992968-15b65708ee76?auto=format&q=75&fit=crop&w=250" loading="lazy" alt="Photo by Himanshu Dewangan" className="h-full w-full object-cover object-center" />
-                                </div>
-
-                                <div className="overflow-hidden rounded-lg bg-gray-100">
-                                    <Image src="https://images.unsplash.com/flagged/photo-1571366992999-47669b775ef6?auto=format&q=75&fit=crop&w=250" loading="lazy" alt="Photo by Himanshu Dewangan" className="h-full w-full object-cover object-center" />
-                                </div>
-                            </div> */}
+                                    <Image src="https://images.unsplash.com/flagged/photo-1571366992999-47669b775ef6?auto=format&q=75&fit=crop&w=250" height={250} width={100} loading="lazy" alt="Photo by Himanshu Dewangan" className="h-full w-full object-cover object-center" />
+                                </div> */}
+                            </div>
 
                             <div className="relative overflow-hidden rounded-lg bg-gray-100 lg:col-span-4">
                                 <Image height={370} width={570} src={product.images[0].src} loading="lazy" alt={product.images[0].alt} className="h-full w-full object-cover object-center" />
@@ -51,36 +59,48 @@ export default async function Produto({params} : { params: Promise<{ slug: strin
                                 <h2 className="text-2xl font-bold text-gray-800 lg:text-3xl">{product.name}</h2>
                             </div>
 
-                            <div className="mb-4 md:mb-6">
-                                <span className="mb-3 inline-block text-sm font-semibold text-gray-500 md:text-base">Color</span>
-
-                                <div className="flex flex-wrap gap-2">
-                                    <span className="h-8 w-8 rounded-full border bg-gray-800 ring-2 ring-gray-800 ring-offset-1 transition duration-100"></span>
-                                    <button type="button" className="h-8 w-8 rounded-full border bg-gray-500 ring-2 ring-transparent ring-offset-1 transition duration-100 hover:ring-gray-200"></button>
-                                    <button type="button" className="h-8 w-8 rounded-full border bg-gray-200 ring-2 ring-transparent ring-offset-1 transition duration-100 hover:ring-gray-200"></button>
-                                    <button type="button" className="h-8 w-8 rounded-full border bg-white ring-2 ring-transparent ring-offset-1 transition duration-100 hover:ring-gray-200"></button>
-                                </div>
-                            </div>
-
-                            <div className="mb-8 md:mb-10">
-                                <span className="mb-3 inline-block text-sm font-semibold text-gray-500 md:text-base">Size</span>
-
-                                <div className="flex flex-wrap gap-3">
-                                    <button type="button" className="flex h-8 w-12 items-center justify-center rounded-md border bg-white text-center text-sm font-semibold text-gray-800 transition duration-100 hover:bg-gray-100 active:bg-gray-200">P</button>
-                                    <button type="button" className="flex h-8 w-12 items-center justify-center rounded-md border bg-white text-center text-sm font-semibold text-gray-800 transition duration-100 hover:bg-gray-100 active:bg-gray-200">M</button>
-                                    <span className="flex h-8 w-12 cursor-default items-center justify-center rounded-md border border-indigo-500 bg-indigo-500 text-center text-sm font-semibold text-white">G</span>                                    
-                                </div>
-                            </div>
-
+                            
+                            {/* PREÇO */}
                             <div className="mb-4">
                                 <div className="flex items-end gap-2">
-                                    <span className="text-xl font-bold text-gray-800 md:text-2xl">$15.00</span>
-                                    <span className="mb-0.5 text-red-500 line-through">{`R$ ${product.regular_price}`}</span>
+                                    <span className="text-xl font-bold text-gray-800 md:text-2xl">{salePrice}</span>
+                                    <span className="mb-0.5 text-red-500 line-through">{regularPrice}</span>
                                 </div>
 
                                 <span className="text-sm text-gray-500">incl. VAT plus shipping</span>
                             </div>
 
+                            {product.attributes.map(attribute =>{
+
+                                if (attribute.name === 'Cor') {
+                                    return (
+                                        <div className="mb-4 md:mb-6" key={attribute.id}>
+                                            <span className="mb-3 inline-block text-sm font-semibold text-gray-500 md:text-base">Color</span>
+
+                                            <div className="flex flex-wrap gap-2">
+                                                {Array.isArray(attribute.options) && attribute.options.map((color : string) =>(
+                                                    <button type="button" key={attribute.id+1} className="flex h-8 px-4 items-center justify-center rounded-md border bg-white text-center text-sm font-semibold text-gray-800 transition duration-100 hover:bg-gray-100 active:bg-gray-200">{color}</button>
+                                                ))}
+                                            </div>
+                                        </div>
+                                        
+                                    )
+                                } else {
+                                    return (
+                                        <div className="mb-8 md:mb-10" key={attribute.id}>
+                                            <span className="mb-3 inline-block text-sm font-semibold text-gray-500 md:text-base">Tamanho</span>
+
+                                            <div className="flex flex-wrap gap-3">
+                                                {Array.isArray(attribute.options) && attribute.options.map( (size : string) => (
+                                                    <button type="button" key={attribute.id+1} className="flex h-8 w-12 items-center justify-center rounded-md border bg-white text-center text-sm font-semibold text-gray-800 transition duration-100 hover:bg-gray-100 active:bg-gray-200">{size}</button>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )
+                                }
+                            })}
+                                    
+                            {/* ENTREGA */}
                             <div className="mb-6 flex items-center gap-2 text-gray-500">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -91,7 +111,6 @@ export default async function Produto({params} : { params: Promise<{ slug: strin
                             </div>
 
                             <div className="flex gap-2.5">
-                                
                                 <CartButton cartItem={product}/>
                                 <Link href="#" className="inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base">Comprar agora</Link>
                             </div>

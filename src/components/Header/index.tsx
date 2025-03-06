@@ -34,7 +34,7 @@ export default function Header() {
                     </Link> 
                     <ul className={`${style.menuList} ${showMnuMob ? style.active : ''}`}>
                         <li><Link href="/" className={style.active}>Início</Link></li>
-                        <li><Link href="/">A Flor de Cacto</Link></li>
+                        <li><Link href="/a-flor-de-cacto">A Flor de Cacto</Link></li>
                         <li><Link href="/">Roupas</Link></li>
                         <li><Link href="/">Acessórios</Link></li>
                         <li><Link href="/blog">Blog</Link></li>

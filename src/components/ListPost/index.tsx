@@ -3,15 +3,14 @@ import Image from "next/image";
 import { DataPost } from "@/utils/wordpressPostsTypes";
 
 export default async function ListPost() {
-    const blogPosts =  await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_SITE_URL}/wp-json/wp/v2/posts?per_page=3&order=desc&status=publish&_embed`)
+    const blogPosts = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_SITE_URL}/wp-json/wp/v2/posts?per_page=3&order=desc&status=publish&_embed`)
     const posts = await blogPosts.json();
+
     const options: Intl.DateTimeFormatOptions = {
         day: 'numeric',
         month: 'long', 
         year: 'numeric'
     };
-
-    console.log(posts[0]._embedded['wp:term'])
 
     return (
         <div className="bg-white py-6 sm:py-8 lg:py-12 max-w-7xl mx-auto">
