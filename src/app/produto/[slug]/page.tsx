@@ -15,9 +15,6 @@ export default async function Produto({params} : { params: Promise<{ slug: strin
     const salePrice = Number(product.sale_price).toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
     const regularPrice = Number(product.regular_price).toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
 
-
-    console.log(product)
-
     return (
         <div className="container">
             <div className="bg-white py-6 sm:py-8 lg:py-12">
