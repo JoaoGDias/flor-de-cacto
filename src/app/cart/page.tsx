@@ -46,7 +46,7 @@ export default function Cart() {
                                                         {product.attributes.map(attr => (
                                                             <div key={attr.id}>
                                                                 <dt className="inline">{attr.name}: </dt>
-                                                                <dd className="inline">{attr.options.join(', ')}</dd>
+                                                                <dd className="inline">{attr.options.split(',').join(', ')}</dd>
                                                             </div>
                                                         ))}
                                                     </dl>
