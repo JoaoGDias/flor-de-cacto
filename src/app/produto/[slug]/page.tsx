@@ -28,13 +28,6 @@ export default async function Produto({params} : { params: Promise<{ slug: strin
                                         <Image src={image.src+} height={250} width={100} loading="lazy" alt="Photo by Himanshu Dewangan" className="h-full w-full object-cover object-center" />
                                     </div>
                                 ))}
-                                {/* <div className="overflow-hidden rounded-lg bg-gray-100">
-                                    <Image src="https://images.unsplash.com/flagged/photo-1571366992968-15b65708ee76?auto=format&q=75&fit=crop&w=250" height={250} width={100} loading="lazy" alt="Photo by Himanshu Dewangan" className="h-full w-full object-cover object-center" />
-                                </div>
-
-                                <div className="overflow-hidden rounded-lg bg-gray-100">
-                                    <Image src="https://images.unsplash.com/flagged/photo-1571366992999-47669b775ef6?auto=format&q=75&fit=crop&w=250" height={250} width={100} loading="lazy" alt="Photo by Himanshu Dewangan" className="h-full w-full object-cover object-center" />
-                                </div> */}
                             </div>
 
                             <div className="relative overflow-hidden rounded-lg bg-gray-100 lg:col-span-4">
