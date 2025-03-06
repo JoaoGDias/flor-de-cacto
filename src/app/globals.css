@@ -200,7 +200,7 @@ input[type=number] {
     display: flex;
     margin-bottom: 100px;
 
-    &-img {
+    &_img {
       max-height: 500px;
       overflow: hidden;
       width: 50%;
@@ -212,7 +212,7 @@ input[type=number] {
       }
     }
 
-    &-txt {
+    &_txt {
       display: flex;
       justify-content: center;
       flex-direction: column;

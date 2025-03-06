@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default async function FeaturedPost() {
-    const featuredPost =  await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_SITE_URL}/wp-json/wp/v2/posts?categories=27&per_page=1&order=desc&status=publish&_embed`)
+    const featuredPost = await fetch(`${process.env.NEXT_PUBLIC_WORDPRESS_SITE_URL}/wp-json/wp/v2/posts?categories=27&per_page=1&order=desc&status=publish&_embed`)
     .then((response) => response.json())
     .then(response => response[0])
     .catch(err => console.error(err));
