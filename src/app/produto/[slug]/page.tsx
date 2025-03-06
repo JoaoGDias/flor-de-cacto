@@ -26,7 +26,7 @@ export default async function Produto({params} : { params: Promise<{ slug: strin
     
                                     {product.images.map((image)=>(
                                         <div key={image.id} className="overflow-hidden rounded-lg bg-gray-100">
-                                            <Image src={image.src+} height={250} width={100} loading="lazy" alt="Photo by Himanshu Dewangan" className="h-full w-full object-cover object-center" />
+                                            <Image src={image.src} height={250} width={100} loading="lazy" alt="Photo by Himanshu Dewangan" className="h-full w-full object-cover object-center" />
                                         </div>
                                     ))}
                                 </div>
