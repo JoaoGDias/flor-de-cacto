@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Infos from "@/components/Infos";
 import ListProduct from "@/components/ListProduct";
 import ListPost from "@/components/ListPost";
+import CartModal from '@/components/Cart/CartModal';
 
 export default async function Home() {
 	const wooCommerceProducts = await fetchWooCommerceProducts().catch((error) =>
@@ -17,7 +18,7 @@ export default async function Home() {
 			<Infos />
 			{/* Bloco lista de produtos */}
 			<ListProduct products={products} />
-			
+			<CartModal />
 			<ListPost />
 		</>
 	);

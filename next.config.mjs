@@ -5,8 +5,8 @@ const nextConfig = {
     images: {
       remotePatterns: [
         {
-          protocol: "http",
-          hostname: "flor-de-cactos.local",
+          protocol: "https",
+          hostname: "randomuser.me",
         },        {
           protocol: "http",
           hostname: "localhost",

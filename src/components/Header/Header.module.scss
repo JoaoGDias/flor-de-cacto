@@ -23,7 +23,7 @@
     nav {
         align-items: center;
         display: flex;
-        height: 100px;
+        height: 70px;
         justify-content: space-between;
         width: 100%;
 
@@ -39,7 +39,7 @@
 
             img {
                 display: block;
-                height: 80px;
+                height: 60px;
                 object-fit: contain;
                 object-position: center;
                 image-rendering: -webkit-optimize-contrast;
@@ -78,7 +78,7 @@
             }
 
             li {
-                height: 35px;
+                height: auto;
                 @media(max-width: 1200px) {
                     height: 50px;
                     width: 100%;
@@ -118,7 +118,7 @@
         .userActions {
             display: flex;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 0;
 
             @media(max-width: 1200px) {
                 margin-left: auto;

@@ -15,7 +15,7 @@ interface CartContextData {
 const CART_STORAGE_KEY = 'cart'; // Chave do localStorage
 const CartContext = createContext<CartContextData>({} as CartContextData);
 
-export function CartProvider({ children }: CartProviderProps) {
+export function CartProvider({ children }) {
   const [cart, setCart] = useState<Product[]>([]);
   const [isClient, setIsClient] = useState(false);
 

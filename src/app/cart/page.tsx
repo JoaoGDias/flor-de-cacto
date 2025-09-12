@@ -43,8 +43,8 @@ export default function Cart() {
 
                                                 {product.attributes &&
                                                     <dl className="mt-0.5 space-y-px text-[10px] text-gray-600">
-                                                        {product.attributes.map(attr => (
-                                                            <div key={attr.id}>
+                                                        {product.attributes.map((attr, index) => (
+                                                            <div key={attr.id + index}>
                                                                 <dt className="inline">{attr.name}: </dt>
                                                                 <dd className="inline">{attr.options.join(', ')}</dd>
                                                             </div>
